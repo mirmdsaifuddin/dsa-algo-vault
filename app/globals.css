@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* scrollbar */
+.scrollbar-thin::-webkit-scrollbar { width: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+
+/* syntax highlight */
+.kw  { color: #ff7b72; }
+.ty  { color: #ffa657; }
+.st  { color: #a5d6ff; }
+.cm  { color: #8b949e; font-style: italic; }
+.nm  { color: #79c0ff; }
+.fn  { color: #d2a8ff; }
