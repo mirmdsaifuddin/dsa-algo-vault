@@ -54,7 +54,7 @@ export default function Sidebar({ problems, selected, onSelect, onAdd }: Props) 
   const hard  = problems.filter(p => p.diff === 'Hard').length
 
   return (
-    <aside className="w-[290px] min-w-[240px] bg-[#161b22] border-r border-[#30363d] flex flex-col overflow-hidden">
+    <aside className="w-[340px] min-w-[240px] bg-[#161b22] border-r border-[#30363d] flex flex-col overflow-hidden">
       {/* Header */}
       <div className="px-4 py-3 border-b border-[#30363d]">
         <div className="text-[#58a6ff] font-bold text-sm tracking-widest uppercase">⚡ DSA Vault</div>
@@ -144,7 +144,7 @@ export default function Sidebar({ problems, selected, onSelect, onAdd }: Props) 
       </div>
 
       {/* Footer add btn */}
-      <div className="absolute bottom-0 left-0 w-[290px] p-3 bg-[#161b22] border-t border-r border-[#30363d]">
+      <div className="absolute bottom-0 left-0 w-[340px] p-3 bg-[#161b22] border-t border-r border-[#30363d]">
         <button
           onClick={onAdd}
           className="w-full py-2 rounded-lg bg-[#58a6ff] text-black text-xs font-bold hover:bg-[#79c0ff] transition-colors font-mono"

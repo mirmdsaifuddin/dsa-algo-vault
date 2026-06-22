@@ -120,7 +120,7 @@ export default function ProblemView({ problem: p, onEdit, onDelete }: Props) {
               <SectionLabel>Key Insight</SectionLabel>
               <div className="bg-[#58a6ff]/5 border border-[#58a6ff]/20 rounded-xl p-4 flex gap-3 text-[13px] text-[#c9d1d9] leading-7">
                 <span className="text-lg shrink-0">💡</span>
-                <span className="font-mono">{p.insight}</span>
+                <div className="font-mono whitespace-pre-line">{p.insight}</div>
               </div>
             </div>
           )}

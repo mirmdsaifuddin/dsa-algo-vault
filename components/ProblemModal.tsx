@@ -8,17 +8,29 @@ interface Props {
   onClose: () => void
 }
 
-const empty: ProblemInsert = {
-  num: '', title: '', topic: 'Arrays', pattern: 'Other', diff: 'Medium',
-  time_complexity: '', space_complexity: '', statement: '', insight: '',
-  code: '', tags: [], solved_at: '',
+// Returns today as YYYY-MM-DD for storage, DD-MM-YYYY for display
+function todayStorage(): string {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`
+}
+function todayDisplay(): string {
+  const d = new Date()
+  return `${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}-${d.getFullYear()}`
+}
+
+function makeEmpty(): ProblemInsert {
+  return {
+    num: '', title: '', topic: 'Arrays', pattern: 'Other', diff: 'Medium',
+    time_complexity: '', space_complexity: '', statement: '', insight: '',
+    code: '', tags: [], solved_at: todayStorage(),
+  }
 }
 
 export default function ProblemModal({ initial, onSave, onClose }: Props) {
-  const [form, setForm] = useState<ProblemInsert>(empty)
+  const [form, setForm] = useState<ProblemInsert>(makeEmpty)
   const [tagsStr, setTagsStr] = useState('')
   const [saving, setSaving] = useState(false)
-  const [dateDisplay, setDateDisplay] = useState('')
+  const [dateDisplay, setDateDisplay] = useState(todayDisplay)
 
   useEffect(() => {
     if (initial) {
@@ -26,9 +38,10 @@ export default function ProblemModal({ initial, onSave, onClose }: Props) {
       setTagsStr(initial.tags?.join(', ') ?? '')
       setDateDisplay(toDisplay(initial.solved_at))
     } else {
-      setForm(empty)
+      const e = makeEmpty()
+      setForm(e)
       setTagsStr('')
-      setDateDisplay('')
+      setDateDisplay(todayDisplay())
     }
   }, [initial])
 

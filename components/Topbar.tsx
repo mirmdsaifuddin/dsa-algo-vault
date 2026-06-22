@@ -1,5 +1,6 @@
 'use client'
 import { Problem } from '@/types'
+import ExportMenu from './ExportMenu'
 
 interface Props {
   problems: Problem[]
@@ -34,6 +35,7 @@ export default function Topbar({ problems, onAdd }: Props) {
 
       <div className="ml-auto flex items-center gap-2">
         <span className="text-[10px] text-[#8b949e] font-mono hidden md:block">Ctrl+N to add</span>
+        <ExportMenu problems={problems} />
         <button
           onClick={onAdd}
           className="px-4 py-1.5 text-xs rounded-lg bg-[#58a6ff] text-black font-bold hover:bg-[#79c0ff] transition-colors font-mono"
